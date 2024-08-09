@@ -9,8 +9,7 @@
 chrome.runtime.onMessage.addListener(handleMessages);
 
 // This function performs basic filtering and error checking on messages before
-// dispatching the
-// message to a more specific message handler.
+// dispatching the message to a more specific message handler.
 async function handleMessages(request) {
   if (request.action === "copyToClipboard") {
     // Create a temporary el for the HTML content
