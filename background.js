@@ -13,9 +13,13 @@ async function addToClipboard(tab) {
     justification: "Write text to the clipboard.",
   });
 
-  chrome.runtime.sendMessage({
+  await chrome.runtime.sendMessage({
     action: "copyToClipboard",
     title: tab.title,
     url: tab.url,
   });
+
+  setTimeout(() => {
+    chrome.offscreen.closeDocument();
+  }, 1000);
 }
