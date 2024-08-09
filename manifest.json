@@ -1,8 +1,8 @@
 {
-  "name": "Offscreen API - Clipboard",
-  "version": "1.1",
+  "name": "Copy Title",
+  "version": "1.3",
   "manifest_version": 3,
-  "description": "Shows how to write a string to the system clipboard using the offscreen document.",
+  "description": "Copy the title of the current tab to the clipboard as a hyperlink",
   "background": {
     "service_worker": "background.js"
   },
