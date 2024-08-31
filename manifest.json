@@ -1,12 +1,18 @@
 {
   "name": "Copy Title",
-  "version": "1.3",
+  "version": "1.21",
   "manifest_version": 3,
   "description": "Copy the title of the current tab to the clipboard as a hyperlink",
   "background": {
     "service_worker": "background.js"
   },
   "action": {},
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
   "permissions": ["offscreen", "clipboardWrite", "activeTab"],
   "icons": {
     "16": "icon.png",
