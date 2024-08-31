@@ -15,5 +15,5 @@ async function clickHandler(tab) {
 
   await chrome.tabs.sendMessage(tab.id, { action: "showAlert" });
 
-  await chrome.offscreen.closeDocument();
+  return chrome.offscreen.closeDocument();
 }
