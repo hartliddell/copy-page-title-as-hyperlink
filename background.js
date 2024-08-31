@@ -13,7 +13,7 @@ async function clickHandler(tab) {
     url: tab.url,
   });
 
-  setTimeout(() => {
-    chrome.offscreen.closeDocument();
-  }, 1000);
+  await chrome.tabs.sendMessage(tab.id, { action: "showAlert" });
+
+  await chrome.offscreen.closeDocument();
 }
