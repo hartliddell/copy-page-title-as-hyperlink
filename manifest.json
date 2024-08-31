@@ -1,15 +1,15 @@
 {
   "name": "Copy page title as hyperlink",
-  "version": "1.51",
+  "version": "1.57",
   "manifest_version": 3,
-  "description": "Copy the title of the current tab to the clipboard as a hyperlink",
+  "description": "Copy page title of the current tab to the clipboard as a hyperlink",
   "background": {
     "service_worker": "background.js"
   },
   "action": {},
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["http://*/*", "https://*/*"],
       "js": ["content.js"]
     }
   ],
