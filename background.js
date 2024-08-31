@@ -6,14 +6,17 @@ async function clickHandler(tab) {
     reasons: [chrome.offscreen.Reason.CLIPBOARD],
     justification: "Write text to the clipboard.",
   });
+  try {
+    await chrome.runtime.sendMessage({
+      action: "copyToClipboard",
+      title: tab.title,
+      url: tab.url,
+    });
 
-  await chrome.runtime.sendMessage({
-    action: "copyToClipboard",
-    title: tab.title,
-    url: tab.url,
-  });
+    await chrome.tabs.sendMessage(tab.id, { action: "showAlert" });
 
-  await chrome.tabs.sendMessage(tab.id, { action: "showAlert" });
-
-  chrome.offscreen.closeDocument();
+    chrome.offscreen.closeDocument();
+  } catch (error) {
+    console.error(error);
+  }
 }
