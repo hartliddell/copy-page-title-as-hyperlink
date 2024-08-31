@@ -16,11 +16,16 @@ async function handler(request) {
       div.style.left = "50%";
       div.style.padding = "8px 12px";
       div.style.position = "fixed";
+      div.style.opacity = 0;
       div.style.top = "12px";
       div.style.transform = "translateX(-50%)";
-      div.style.zIndex = "9999";
+      div.style.transition = "opacity 0.15s";
+      div.style.zIndex = "9999999999";
       document.body.appendChild(div);
-      await delay(2000);
+      // Wait for the font to load
+      await delay(400);
+      div.style.opacity = 1;
+      await delay(1600);
       div.remove();
       font.remove();
       break;
