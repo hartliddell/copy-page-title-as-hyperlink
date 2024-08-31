@@ -1,6 +1,6 @@
 {
   "name": "Copy Title",
-  "version": "1.26",
+  "version": "1.27",
   "manifest_version": 3,
   "description": "Copy the title of the current tab to the clipboard as a hyperlink",
   "background": {
