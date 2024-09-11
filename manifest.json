@@ -1,18 +1,12 @@
 {
   "name": "Copy page title as hyperlink",
-  "version": "1.57",
+  "version": "1.60",
   "manifest_version": 3,
   "description": "Copy page title of the current tab to the clipboard as a hyperlink",
   "background": {
     "service_worker": "background.js"
   },
   "action": {},
-  "content_scripts": [
-    {
-      "matches": ["http://*/*", "https://*/*"],
-      "js": ["content.js"]
-    }
-  ],
   "permissions": ["offscreen", "clipboardWrite", "activeTab"],
   "icons": {
     "16": "icon.png",

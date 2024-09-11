@@ -6,17 +6,19 @@
 // Registering this listener when the script is first executed ensures that the
 // offscreen document will be able to receive messages when the promise returned
 // by `offscreen.createDocument()` resolves.
-chrome.runtime.onMessage.addListener(messageHandler);
+chrome.runtime.onMessage.addListener(handleMessages);
 
 // This function performs basic filtering and error checking on messages before
 // dispatching the message to a more specific message handler.
-async function messageHandler(request) {
+async function handleMessages(request) {
   if (request.action === "copyToClipboard") {
     // Create a temporary el for the HTML content
     const el = document.createElement("div");
 
     // Set the innerHTML to the desired content
     el.innerHTML = `<a href="${request.url}">${request.title}</a>`;
+
+    console.log("el", el);
 
     // Append the el to the body of the offscreen document
     document.body.appendChild(el);
